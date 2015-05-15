@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    JBoss, Home of Professional Open Source
+    Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+    contributors by the @authors tag. See the copyright.txt in the
+    distribution for a full listing of individual contributors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://richfaces.org/a4j" 
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+	
+	<h:form>
+	<p:messages id="messages" />  
+    <p:growl id="growl" life="2000" />
+     
+    <p:commandButton value="Ajax Submit" id="ajax" update="growl" actionListener="#{ButtonView.buttonAction()}" styleClass="ui-priority-primary" />
+ 
+    <p:commandButton value="Non-Ajax Submit" id="nonAjax" actionListener="#{ButtonView.buttonAction()}" ajax="false" />
+ 
+    <p:commandButton value="With Icon" id="withIcon" actionListener="#{ButtonView.buttonAction()}" update="growl" icon="ui-icon-disk" />
+ 
+    <p:commandButton actionListener="#{ButtonView.buttonAction()}" id="iconOnly" update="growl" icon="ui-icon-disk" title="Icon Only" />
+ 
+    <p:commandButton value="Disabled" id="disabled" disabled="true" />
+</h:form>
+	
+	
+	
+	
+	
+	
+		<h:form>
+		<p:messages id="messages" />  
+		<p:slideMenu style="width:180px">
+			<p:submenu label="Ajax Menuitems" icon="ui-icon-refresh">
+				<p:menuitem value="Save" actionListener="#{menuView.save()}"
+					update="messages" icon="ui-icon-disk" />
+				<p:menuitem value="Update" actionListener="#{menuView.update()}"
+					update="messages" icon="ui-icon-arrowrefresh-1-w" />
+			</p:submenu>
+			
+			<p:submenu label="Non-Ajax Menuitem" icon="ui-icon-newwin">
+				<p:menuitem value="Delete" actionListener="#{menuView.delete()}"
+					ajax="false" icon="ui-icon-close" />
+			</p:submenu>
+			<p:separator />
+			<p:submenu label="Navigations" icon="ui-icon-extlink">
+				<p:submenu label="Prime Links">
+					<p:menuitem value="Prime" url="http://www.prime.com.tr" />
+					<p:menuitem value="PrimeFaces" url="http://www.primefaces.org" />
+				</p:submenu>
+				
+			</p:submenu>
+		</p:slideMenu>
+		<p:separator />
+
+		<p:commandButton id="dynaButton" value="Show" type="button"
+			icon="ui-icon-extlink" />
+		<p:slideMenu overlay="true" trigger="dynaButton" my="left top"
+			at="left bottom" style="width:180px">
+			<p:submenu label="Ajax Menuitems">
+				<p:menuitem value="Save" actionListener="#{menuView.save()}"
+					update="messages" icon="ui-icon-disk" />
+				<p:menuitem value="Update" actionListener="#{menuView.update()}"
+					update="messages" icon="ui-icon-arrowrefresh-1-w" />
+			</p:submenu>
+			<p:submenu label="Non-Ajax Menuitem">
+				<p:menuitem value="Delete" actionListener="#{menuView.delete()}"
+					ajax="false" icon="ui-icon-close" />
+			</p:submenu>
+			<p:submenu label="Navigations" icon="ui-icon-extlink">
+				<p:submenu label="Prime Links">
+					<p:menuitem value="Prime" url="http://www.prime.com.tr" />
+					<p:menuitem value="PrimeFaces" url="http://www.primefaces.org" />
+				</p:submenu>
+			
+			</p:submenu>
+		</p:slideMenu>
+</h:form>
+	</ui:define>
+</ui:composition>
