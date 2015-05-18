@@ -37,6 +37,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @XmlRootElement
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@SQLInsert( sql="INSERT INTO Member(id, name, email, phoneNumber) VALUES(?,upper(?),?,?)")
+@SQLUpdate( sql="UPDATE Member SET name = ?, email = upper(?), phoneNumber = ? WHERE id = ?")
+@SQLDelete( sql="DELETE Member WHERE id = ?")
+@SQLDeleteAll( sql="DELETE Member")
 public class Member implements Serializable {
 
     @Id
