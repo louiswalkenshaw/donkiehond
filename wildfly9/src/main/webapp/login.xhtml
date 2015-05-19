@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/WEB-INF/templates/template.xhtml">>
+    <ui:define name="content">
+		<h:form id="regForm">
+			<p:growl id="growl" life="2000" />
+			<p:panel style="width:30%;background:lightblue;" >
+				<h:outputText value="Username :" for="userName" />
+				<p:inputText id="userName" />
+				<br />
+				<br />
+				<h:outputText value="Password  :" for="passWord" />
+				<p:password id="passWord" />
+				<br />
+				<br />
+				<p:commandButton value="Login" id="loginbtn" update="growl"
+					styleClass="ui-priority-primary" icon="ui-icon-key" />
+
+				<p:link outcome="home" value="Register here" style="float:right;"/>
+
+			</p:panel>
+		</h:form>
+
+
+
+	</ui:define>
+</ui:composition>
