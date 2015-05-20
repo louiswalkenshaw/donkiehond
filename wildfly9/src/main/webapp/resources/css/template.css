@@ -1,0 +1,22 @@
+.backgroundImage {
+
+  background-image: url(#{request.contextPath}/resources/gfx/01.jpg);
+
+}
+.bgiPanel{
+	background: transparent;
+    border-radius: 25px;
+    background-position: left top;
+    background-repeat: no-repeat;
+    padding: 20px; 
+    width: 430px;
+    margin: 0 auto;
+}
+.noBorderTransparent{
+	background: transparent;
+
+}
+.noBorders tr, .noBorders td {
+    background: none !important;
+    border: none !important;
+}
